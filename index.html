@@ -5,25 +5,22 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Peintre Béziers — Color D'Oc | Peinture, Décoration & Rénovation</title>
-<meta name="description" content="Color D'Oc, votre peintre professionnel à Béziers. Peinture intérieure, extérieure, façade, crépi, traitement anti-humidité. Devis gratuit. Note 5/5 sur Google.">
+<meta name="description" content="Color D'Oc, votre peintre professionnel à Béziers. Peinture intérieure, extérieure, façade, crépi. Devis gratuit. Note 5/5 sur Google.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://colorDoc-beziers.fr">
 <meta property="og:title" content="Peintre Béziers — Color D'Oc">
-<meta property="og:description" content="Peinture intérieure, extérieure, décoration et rénovation à Béziers et alentours. Devis gratuit. 5/5 Google.">
-<meta property="og:image" content="https://images.unsplash.com/photo-1562259929-b4e1fd3aef09?w=1200">
+<meta property="og:description" content="Peinture intérieure, extérieure, décoration et rénovation à Béziers. Devis gratuit. 5/5 Google.">
 <meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎨</text></svg>">
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "name": "Color D'Oc",
-  "description": "Peintre professionnel à Béziers — peinture intérieure, extérieure, décoration, façade, crépi, traitement anti-humidité.",
+  "description": "Peintre professionnel à Béziers — peinture intérieure, extérieure, décoration, façade, crépi.",
   "url": "https://colorDoc-beziers.fr",
   "telephone": "+33659814655",
   "address": {
@@ -33,7 +30,7 @@
     "postalCode": "34500",
     "addressCountry": "FR"
   },
-  "areaServed": ["Béziers", "Montpellier", "Narbonne", "Hérault", "Occitanie"],
+  "areaServed": ["Béziers","Montpellier","Narbonne","Hérault","Occitanie"],
   "openingHours": "Mo-Fr 08:00-19:00",
   "priceRange": "€€",
   "aggregateRating": {
@@ -43,737 +40,634 @@
   }
 }
 </script>
-
 <style>
-:root {
-  --cream: #F8F4EE;
-  --dark: #1C1814;
-  --brown: #3D2B1F;
-  --red: #C0392B;
-  --warm: #E8D5B7;
-  --muted: rgba(28,24,20,0.5);
-  --faint: rgba(28,24,20,0.08);
-  --fd: 'Playfair Display', serif;
-  --fb: 'DM Sans', sans-serif;
-  --r: 12px;
-}
-
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
-
 body {
-  background: var(--cream);
-  color: var(--dark);
-  font-family: var(--fb);
+  background: #ffffff;
+  color: #111111;
+  font-family: 'DM Sans', sans-serif;
   font-weight: 300;
   line-height: 1.6;
   overflow-x: hidden;
 }
 
-/* ─── INTRO RIDEAU ─── */
+/* ── PAINT CANVAS ── */
+#paint-canvas {
+position: fixed;
+inset: 0;
+z-index: 0;
+pointer-events: none;
+opacity: 1;
+}
+
+/* ── INTRO ── */
 #intro {
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  display: flex;
-  pointer-events: all;
-  cursor: pointer;
+position: fixed;
+inset: 0;
+z-index: 9999;
+display: flex;
+pointer-events: all;
+cursor: pointer;
 }
-#intro .panel {
-  width: 50%;
-  height: 100%;
-  background: var(--dark);
-  transition: transform 1.2s cubic-bezier(0.77,0,0.175,1);
-}
-#intro .panel-right { background: var(--red); }
+#intro .panel { width: 50%; height: 100%; transition: transform 1.2s cubic-bezier(0.77,0,0.175,1); }
+#intro .panel-left { background: #111111; }
+#intro .panel-right { background: #CC1010; }
 #intro.open .panel-left { transform: translateX(-100%); }
 #intro.open .panel-right { transform: translateX(100%); }
 #intro.done { display: none; }
 
 .intro-logo {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 10000;
-  text-align: center;
-  pointer-events: none;
-  transition: opacity 0.4s;
+position: fixed;
+top: 50%; left: 50%;
+transform: translate(-50%, -50%);
+z-index: 10000;
+text-align: center;
+pointer-events: none;
+transition: opacity 0.4s;
 }
 .intro-logo h2 {
-  font-family: var(--fd);
-  font-size: clamp(2rem, 6vw, 4rem);
-  color: white;
-  letter-spacing: -0.02em;
+font-family: ‘Nunito’, sans-serif;
+font-size: clamp(2.2rem, 7vw, 4.5rem);
+color: white;
+font-weight: 900;
+letter-spacing: -0.02em;
 }
+.intro-logo h2 span { color: #CC1010; }
 .intro-logo p {
-  font-size: 0.85rem;
-  color: rgba(255,255,255,0.5);
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  margin-top: 8px;
+font-size: 0.82rem;
+color: rgba(255,255,255,0.45);
+text-transform: uppercase;
+letter-spacing: 0.14em;
+margin-top: 10px;
 }
 .intro-logo.fade { opacity: 0; }
 
-/* ─── NAV ─── */
+/* ── NAV ── */
 nav {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 500;
-  padding: 18px 6vw;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: rgba(248,244,238,0.92);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--faint);
-  transition: box-shadow 0.3s;
+position: fixed;
+top: 0; left: 0; right: 0;
+z-index: 500;
+padding: 0 5vw;
+height: 62px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+background: rgba(255,255,255,0.94);
+backdrop-filter: blur(16px);
+-webkit-backdrop-filter: blur(16px);
+border-bottom: 1px solid rgba(0,0,0,0.06);
 }
-
 .nav-logo {
-  font-family: var(--fd);
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: var(--dark);
-  text-decoration: none;
-  letter-spacing: -0.01em;
+font-family: ‘Nunito’, sans-serif;
+font-size: 1.25rem;
+font-weight: 900;
+color: #111111;
+text-decoration: none;
+letter-spacing: -0.02em;
 }
-.nav-logo span { color: var(--red); }
-
-.nav-links {
-  display: flex;
-  gap: 28px;
-  list-style: none;
-}
+.nav-logo span { color: #CC1010; }
+.nav-links { display: flex; gap: 26px; list-style: none; }
 .nav-links a {
-  font-size: 0.82rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--muted);
-  text-decoration: none;
-  transition: color 0.2s;
+font-size: 0.78rem;
+text-transform: uppercase;
+letter-spacing: 0.09em;
+color: rgba(0,0,0,0.45);
+text-decoration: none;
+transition: color 0.2s;
 }
-.nav-links a:hover { color: var(--dark); }
-
+.nav-links a:hover { color: #111111; }
 .nav-cta {
-  background: var(--red);
-  color: white;
-  font-family: var(--fb);
-  font-weight: 500;
-  font-size: 0.82rem;
-  padding: 10px 20px;
-  text-decoration: none;
-  border-radius: 8px;
-  transition: opacity 0.2s;
+background: #CC1010;
+color: white;
+font-family: ‘DM Sans’, sans-serif;
+font-weight: 500;
+font-size: 0.8rem;
+padding: 9px 18px;
+text-decoration: none;
+border-radius: 8px;
+transition: opacity 0.2s;
 }
 .nav-cta:hover { opacity: 0.85; }
+@media (max-width: 768px) { .nav-links { display: none; } }
 
-@media (max-width: 768px) {
-  .nav-links { display: none; }
-}
-
-/* ─── HERO ─── */
+/* ── HERO ── */
 #hero {
-  min-height: 100vh;
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
+min-height: 100svh;
+position: relative;
+z-index: 1;
+display: flex;
+align-items: center;
+overflow: hidden;
+background: #ffffff;
 }
 
-.hero-video-wrap {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
+/* Paint accent right side - desktop only */
+.hero-paint-accent {
+position: absolute;
+top: 0; right: 0;
+width: 42%;
+height: 100%;
+z-index: 0;
+pointer-events: none;
+display: block;
 }
-.hero-video-wrap video,
-.hero-video-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(28,24,20,0.82) 0%, rgba(28,24,20,0.4) 100%);
+@media (max-width: 768px) {
+.hero-paint-accent { display: none; }
 }
 
 .hero-content {
-  position: relative;
-  z-index: 2;
-  padding: 120px 6vw 80px;
-  max-width: 780px;
+position: relative;
+z-index: 2;
+padding: 120px 6vw 100px;
+max-width: 680px;
 }
 
 .hero-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(192,57,43,0.2);
-  border: 1px solid rgba(192,57,43,0.4);
-  border-radius: 100px;
-  padding: 7px 16px;
-  font-size: 0.72rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: #E8A89E;
-  margin-bottom: 28px;
+display: inline-flex;
+align-items: center;
+gap: 8px;
+background: rgba(204,16,16,0.07);
+border: 1px solid rgba(204,16,16,0.18);
+border-radius: 100px;
+padding: 7px 16px;
+font-size: 0.7rem;
+text-transform: uppercase;
+letter-spacing: 0.1em;
+color: #CC1010;
+margin-bottom: 28px;
 }
 .hero-tag::before {
-  content: '';
-  width: 6px; height: 6px;
-  background: var(--red);
-  border-radius: 50%;
+content: ‘’;
+width: 6px; height: 6px;
+background: #CC1010;
+border-radius: 50%;
+animation: pulse 2s infinite;
 }
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1);}50%{opacity:.4;transform:scale(.8);} }
 
 h1 {
-  font-family: var(--fd);
-  font-size: clamp(2.6rem, 7vw, 5.5rem);
-  font-weight: 900;
-  line-height: 1.05;
-  letter-spacing: -0.02em;
-  color: white;
-  margin-bottom: 20px;
+font-family: ‘Nunito’, sans-serif;
+font-size: clamp(2.8rem, 7.5vw, 5.6rem);
+font-weight: 900;
+line-height: 1.0;
+letter-spacing: -0.025em;
+color: #111111;
+margin-bottom: 22px;
 }
-h1 em {
-  font-style: italic;
-  color: #E8A89E;
-}
+h1 em { font-style: normal; color: #CC1010; }
 
 .hero-sub {
-  font-size: 1rem;
-  color: rgba(255,255,255,0.65);
-  max-width: 440px;
-  line-height: 1.75;
-  margin-bottom: 36px;
+font-size: 1rem;
+color: rgba(0,0,0,0.5);
+max-width: 420px;
+line-height: 1.8;
+margin-bottom: 36px;
 }
 
-.hero-btns {
-  display: flex;
-  gap: 14px;
-  flex-wrap: wrap;
-}
+.hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
 
 .btn-primary {
-  background: var(--red);
-  color: white;
-  font-family: var(--fb);
-  font-weight: 500;
-  font-size: 0.92rem;
-  padding: 15px 28px;
-  text-decoration: none;
-  border-radius: 10px;
-  transition: opacity 0.2s, transform 0.2s;
+background: #CC1010;
+color: white;
+font-family: ‘DM Sans’, sans-serif;
+font-weight: 500;
+font-size: 0.92rem;
+padding: 15px 28px;
+text-decoration: none;
+border-radius: 10px;
+box-shadow: 0 4px 20px rgba(204,16,16,0.3);
+transition: opacity 0.2s, transform 0.2s;
+display: inline-flex; align-items: center;
 }
 .btn-primary:hover { opacity: 0.88; transform: translateY(-2px); }
 
 .btn-outline {
-  background: transparent;
-  color: white;
-  border: 1px solid rgba(255,255,255,0.3);
-  font-family: var(--fb);
-  font-size: 0.92rem;
-  padding: 15px 28px;
-  text-decoration: none;
-  border-radius: 10px;
-  transition: border-color 0.2s, color 0.2s;
+background: transparent;
+color: #111111;
+border: 1.5px solid rgba(0,0,0,0.15);
+font-family: ‘DM Sans’, sans-serif;
+font-size: 0.92rem;
+padding: 15px 28px;
+text-decoration: none;
+border-radius: 10px;
+transition: border-color 0.2s, color 0.2s;
+display: inline-flex; align-items: center;
 }
-.btn-outline:hover { border-color: white; }
+.btn-outline:hover { border-color: #CC1010; color: #CC1010; }
 
+/* ── STATS ── */
 .hero-stats {
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  z-index: 2;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  background: rgba(28,24,20,0.85);
-  backdrop-filter: blur(10px);
+position: relative;
+z-index: 2;
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+background: #111111;
 }
+@media (max-width: 600px) { .hero-stats { grid-template-columns: repeat(2,1fr); } }
 
 .stat {
-  padding: 22px 20px;
-  border-right: 1px solid rgba(255,255,255,0.08);
-  text-align: center;
+padding: 22px 16px;
+border-right: 1px solid rgba(255,255,255,0.07);
+text-align: center;
 }
 .stat:last-child { border-right: none; }
 .stat-val {
-  font-family: var(--fd);
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: white;
-  display: block;
-  line-height: 1;
-  margin-bottom: 4px;
+font-family: ‘Nunito’, sans-serif;
+font-size: 1.9rem;
+font-weight: 900;
+color: white;
+display: block;
+line-height: 1;
+margin-bottom: 4px;
+letter-spacing: -0.02em;
 }
-.stat-val .r { color: var(--red); }
+.stat-val .r { color: #CC1010; }
 .stat-lbl {
-  font-size: 0.68rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: rgba(255,255,255,0.4);
+font-size: 0.66rem;
+text-transform: uppercase;
+letter-spacing: 0.09em;
+color: rgba(255,255,255,0.35);
 }
 
-@media (max-width: 600px) {
-  .hero-stats { grid-template-columns: repeat(2, 1fr); }
-}
-
-/* ─── SECTIONS ─── */
-section { padding: 90px 6vw; }
+/* ── SECTIONS BASE ── */
+section { padding: 88px 6vw; position: relative; z-index: 1; }
 
 .s-tag {
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  color: var(--red);
-  margin-bottom: 14px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
+font-size: 0.68rem;
+text-transform: uppercase;
+letter-spacing: 0.14em;
+color: #CC1010;
+margin-bottom: 14px;
+display: flex;
+align-items: center;
+gap: 8px;
 }
-.s-tag::before { content: ''; width: 18px; height: 1px; background: var(--red); }
+.s-tag::before { content: ‘’; width: 16px; height: 1px; background: #CC1010; }
 
 h2 {
-  font-family: var(--fd);
-  font-size: clamp(1.9rem, 4.5vw, 3.2rem);
-  font-weight: 700;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-  margin-bottom: 14px;
+font-family: ‘Nunito’, sans-serif;
+font-size: clamp(1.9rem, 4.5vw, 3.2rem);
+font-weight: 900;
+line-height: 1.05;
+letter-spacing: -0.02em;
+margin-bottom: 14px;
 }
-
 .s-sub {
-  font-size: 0.92rem;
-  color: var(--muted);
-  line-height: 1.75;
-  max-width: 480px;
-  margin-bottom: 50px;
+font-size: 0.9rem;
+color: rgba(0,0,0,0.45);
+line-height: 1.8;
+max-width: 480px;
+margin-bottom: 48px;
 }
 
-/* ─── POURQUOI ─── */
-#pourquoi { background: var(--dark); }
+/* ── POURQUOI ── */
+#pourquoi { background: #111111; }
 #pourquoi h2 { color: white; }
-#pourquoi .s-tag { }
-#pourquoi .s-sub { color: rgba(255,255,255,0.45); }
+#pourquoi .s-tag { color: rgba(255,255,255,0.45); }
+#pourquoi .s-tag::before { background: rgba(255,255,255,0.45); }
+#pourquoi .s-sub { color: rgba(255,255,255,0.38); }
 
 .pourquoi-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 2px;
-  background: rgba(255,255,255,0.04);
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+gap: 2px;
+background: rgba(255,255,255,0.03);
 }
-
 .pourquoi-card {
-  background: var(--dark);
-  padding: 40px 32px;
-  transition: background 0.3s;
-  border-left: 2px solid transparent;
+background: #111111;
+padding: 40px 32px;
+border-left: 2px solid transparent;
+transition: background 0.3s, border-color 0.3s;
 }
-.pourquoi-card:hover {
-  background: #2a201a;
-  border-left-color: var(--red);
-}
-
-.pourquoi-icon {
-  font-size: 2rem;
-  margin-bottom: 18px;
-  display: block;
-}
+.pourquoi-card:hover { background: #1a1a1a; border-left-color: #CC1010; }
+.pourquoi-icon { font-size: 1.8rem; margin-bottom: 18px; display: block; }
 .pourquoi-card h3 {
-  font-family: var(--fd);
-  font-size: 1.1rem;
-  color: white;
-  margin-bottom: 10px;
+font-family: ‘Nunito’, sans-serif;
+font-size: 1.08rem;
+font-weight: 800;
+color: white;
+margin-bottom: 10px;
 }
-.pourquoi-card p {
-  font-size: 0.85rem;
-  color: rgba(255,255,255,0.45);
-  line-height: 1.75;
-}
+.pourquoi-card p { font-size: 0.84rem; color: rgba(255,255,255,0.4); line-height: 1.8; }
 
-/* ─── SERVICES ─── */
-#services { background: var(--cream); }
+/* ── SERVICES ── */
+#services { background: #ffffff; }
 
 .services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 16px;
-  margin-top: 0;
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+gap: 14px;
 }
-
 .service-card {
-  background: white;
-  border: 1px solid var(--faint);
-  border-radius: 16px;
-  padding: 32px 28px;
-  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
-  position: relative;
-  overflow: hidden;
+background: #f8f8f8;
+border: 1px solid rgba(0,0,0,0.06);
+border-radius: 16px;
+padding: 30px 26px;
+position: relative;
+overflow: hidden;
+transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
 }
-.service-card::after {
-  content: '';
-  position: absolute;
-  bottom: 0; left: 0;
-  height: 2px; width: 0;
-  background: var(--red);
-  transition: width 0.4s ease;
+.service-card::before {
+content: ‘’;
+position: absolute;
+top: 0; left: 0;
+width: 3px; height: 0;
+background: #CC1010;
+transition: height 0.4s;
 }
-.service-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 30px rgba(28,24,20,0.1);
-  border-color: rgba(192,57,43,0.2);
-}
-.service-card:hover::after { width: 100%; }
+.service-card:hover { transform: translateY(-4px); box-shadow: 0 14px 32px rgba(0,0,0,0.08); border-color: rgba(204,16,16,0.15); }
+.service-card:hover::before { height: 100%; }
+.service-num { font-size: 0.68rem; color: #CC1010; font-weight: 700; letter-spacing: 0.1em; margin-bottom: 14px; display: block; }
+.service-card h3 { font-family: ‘Nunito’, sans-serif; font-size: 1.05rem; font-weight: 800; margin-bottom: 10px; }
+.service-card p { font-size: 0.83rem; color: rgba(0,0,0,0.48); line-height: 1.75; }
 
-.service-num {
-  font-family: var(--fd);
-  font-size: 0.7rem;
-  color: var(--red);
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  margin-bottom: 14px;
-  display: block;
-}
-.service-card h3 {
-  font-family: var(--fd);
-  font-size: 1.15rem;
-  margin-bottom: 10px;
-}
-.service-card p {
-  font-size: 0.84rem;
-  color: var(--muted);
-  line-height: 1.7;
-}
+/* ── AVANT/APRÈS ── */
+#avantapres { background: #111111; }
+#avantapres h2 { color: white; }
+#avantapres .s-tag { color: rgba(255,255,255,0.45); }
+#avantapres .s-tag::before { background: rgba(255,255,255,0.45); }
+#avantapres .s-sub { color: rgba(255,255,255,0.38); }
 
-/* ─── RÉALISATIONS ─── */
-#realisations { background: #F0EBE1; }
-
-.real-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-  margin-top: 0;
+.aa-grid {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap: 20px;
 }
+@media (max-width: 700px) { .aa-grid { grid-template-columns: 1fr; } }
 
-@media (max-width: 600px) {
-  .real-grid { grid-template-columns: 1fr; }
+.aa-card {
+background: #1a1a1a;
+border-radius: 16px;
+overflow: hidden;
+border: 1px solid rgba(255,255,255,0.06);
+transition: border-color 0.3s;
 }
+.aa-card:hover { border-color: rgba(204,16,16,0.3); }
 
-.real-img {
-  aspect-ratio: 4/3;
-  object-fit: cover;
-  border-radius: 12px;
-  width: 100%;
-  transition: transform 0.4s, box-shadow 0.4s;
+.aa-images {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 2px;
 }
-.real-img:hover {
-  transform: scale(1.02);
-  box-shadow: 0 12px 30px rgba(28,24,20,0.2);
+.aa-img-wrap {
+position: relative;
+overflow: hidden;
 }
+.aa-img-wrap img {
+width: 100%;
+aspect-ratio: 3/4;
+object-fit: cover;
+display: block;
+transition: transform 0.4s;
+}
+.aa-card:hover .aa-img-wrap img { transform: scale(1.03); }
 
-/* ─── À PROPOS ─── */
+.aa-label {
+position: absolute;
+top: 10px; left: 10px;
+font-size: 0.62rem;
+font-weight: 700;
+text-transform: uppercase;
+letter-spacing: 0.1em;
+padding: 4px 10px;
+border-radius: 100px;
+color: white;
+}
+.aa-label.avant { background: rgba(0,0,0,0.72); }
+.aa-label.apres { background: #CC1010; }
+
+.aa-info {
+padding: 18px 20px;
+border-top: 1px solid rgba(255,255,255,0.06);
+}
+.aa-info h3 {
+font-family: ‘Nunito’, sans-serif;
+font-weight: 800;
+color: white;
+font-size: 0.97rem;
+margin-bottom: 4px;
+}
+.aa-info p { font-size: 0.76rem; color: rgba(255,255,255,0.32); }
+
+/* ── À PROPOS ── */
 #apropos {
-  background: var(--cream);
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: center;
+background: #ffffff;
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 70px;
+align-items: center;
 }
-@media (max-width: 768px) {
-  #apropos { grid-template-columns: 1fr; gap: 40px; }
-}
+@media (max-width: 768px) { #apropos { grid-template-columns: 1fr; gap: 40px; } }
 
 .apropos-img {
-  width: 100%;
-  border-radius: 16px;
-  aspect-ratio: 4/5;
-  object-fit: cover;
+width: 100%;
+border-radius: 16px;
+aspect-ratio: 4/5;
+object-fit: cover;
 }
-
-.apropos-content {}
-.apropos-content .s-tag { margin-bottom: 14px; }
-
-.apropos-values {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  margin-top: 32px;
-}
+.apropos-values { display: flex; flex-direction: column; gap: 14px; margin-top: 32px; }
 .value {
-  display: flex;
-  align-items: flex-start;
-  gap: 14px;
-  font-size: 0.88rem;
-  color: var(--muted);
-  line-height: 1.6;
+display: flex;
+align-items: flex-start;
+gap: 12px;
+font-size: 0.87rem;
+color: rgba(0,0,0,0.55);
+line-height: 1.6;
 }
-.value::before {
-  content: '→';
-  color: var(--red);
-  flex-shrink: 0;
-  font-weight: 700;
-}
+.value::before { content: ‘→’; color: #CC1010; flex-shrink: 0; font-weight: 700; }
 
-/* ─── TÉMOIGNAGES ─── */
-#temoignages { background: var(--dark); }
+/* ── TEMOIGNAGES ── */
+#temoignages { background: #CC1010; }
 #temoignages h2 { color: white; }
-#temoignages .s-sub { color: rgba(255,255,255,0.4); }
+#temoignages .s-tag { color: rgba(255,255,255,0.7); }
+#temoignages .s-tag::before { background: rgba(255,255,255,0.7); }
+#temoignages .s-sub { color: rgba(255,255,255,0.55); }
 
 .temo-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 16px;
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+gap: 14px;
 }
-
 .temo {
-  background: #2a201a;
-  border: 1px solid rgba(255,255,255,0.06);
-  border-radius: 16px;
-  padding: 32px 28px;
-  transition: border-color 0.3s;
+background: rgba(255,255,255,0.1);
+border: 1px solid rgba(255,255,255,0.15);
+border-radius: 16px;
+padding: 28px 24px;
+transition: background 0.3s;
 }
-.temo:hover { border-color: rgba(192,57,43,0.3); }
+.temo:hover { background: rgba(255,255,255,0.18); }
+.stars { color: #FFD700; font-size: 0.9rem; margin-bottom: 14px; display: block; letter-spacing: 2px; }
+.temo p { font-size: 0.87rem; color: rgba(255,255,255,0.82); line-height: 1.8; margin-bottom: 18px; font-style: italic; }
+.temo-who strong { font-family: ‘Nunito’, sans-serif; color: white; font-size: 0.9rem; display: block; margin-bottom: 2px; font-weight: 800; }
+.temo-who span { font-size: 0.7rem; color: rgba(255,255,255,0.45); text-transform: uppercase; letter-spacing: 0.07em; }
 
-.stars {
-  color: #F4C430;
-  font-size: 0.9rem;
-  margin-bottom: 14px;
-  display: block;
-}
-.temo p {
-  font-size: 0.88rem;
-  color: rgba(255,255,255,0.7);
-  line-height: 1.8;
-  margin-bottom: 20px;
-  font-style: italic;
-}
-.temo-who strong {
-  font-family: var(--fd);
-  color: white;
-  font-size: 0.92rem;
-  display: block;
-  margin-bottom: 2px;
-}
-.temo-who span {
-  font-size: 0.72rem;
-  color: rgba(255,255,255,0.3);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-}
-
-/* ─── ZONES ─── */
-#zones { background: var(--cream); }
-
-.zones-wrap {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 0;
-}
-
+/* ── ZONES ── */
+#zones { background: #ffffff; }
+.zones-wrap { display: flex; flex-wrap: wrap; gap: 9px; }
 .zone-chip {
-  padding: 9px 18px;
-  border: 1px solid var(--faint);
-  border-radius: 100px;
-  font-size: 0.82rem;
-  color: var(--muted);
-  background: white;
-  transition: all 0.2s;
-  cursor: default;
+padding: 8px 18px;
+border: 1.5px solid rgba(0,0,0,0.1);
+border-radius: 100px;
+font-size: 0.82rem;
+color: rgba(0,0,0,0.5);
+background: white;
+transition: all 0.2s;
+cursor: default;
 }
-.zone-chip:hover {
-  border-color: var(--red);
-  color: var(--red);
-  transform: translateY(-1px);
+.zone-chip:hover { border-color: #CC1010; color: #CC1010; background: rgba(204,16,16,0.04); transform: translateY(-1px); }
+
+/* ── FAQ ── */
+#faq { background: #f4f4f4; }
+.faq-list { max-width: 680px; display: flex; flex-direction: column; gap: 6px; }
+.faq-item {
+background: white;
+border-radius: 12px;
+border: 1px solid rgba(0,0,0,0.06);
+overflow: hidden;
+transition: border-color 0.2s;
 }
-
-/* ─── FAQ ─── */
-#faq { background: #F0EBE1; }
-
-.faq-list {
-  max-width: 680px;
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.faq-item { background: white; border-radius: 10px; margin-bottom: 6px; }
+.faq-item.open { border-color: rgba(204,16,16,0.3); }
 .faq-q {
-  width: 100%; background: none; border: none;
-  color: var(--dark); font-family: var(--fd);
-  font-size: 0.95rem; font-weight: 700;
-  padding: 20px 22px; text-align: left; cursor: pointer;
-  display: flex; justify-content: space-between; align-items: center; gap: 16px;
-  transition: color 0.2s;
+width: 100%; background: none; border: none;
+color: #111111; font-family: ‘Nunito’, sans-serif;
+font-size: 0.92rem; font-weight: 800;
+padding: 18px 20px; text-align: left; cursor: pointer;
+display: flex; justify-content: space-between; align-items: center; gap: 16px;
+transition: color 0.2s;
 }
-.faq-q:hover { color: var(--red); }
+.faq-q:hover { color: #CC1010; }
 .faq-ico {
-  width: 22px; height: 22px; border-radius: 50%;
-  border: 1px solid var(--faint);
-  display: flex; align-items: center; justify-content: center;
-  color: var(--red); font-size: 0.9rem; flex-shrink: 0;
-  transition: transform 0.3s;
+width: 22px; height: 22px; border-radius: 50%;
+border: 1.5px solid rgba(0,0,0,0.1);
+display: flex; align-items: center; justify-content: center;
+color: #CC1010; font-size: 0.9rem; flex-shrink: 0;
+transition: transform 0.3s, border-color 0.2s;
 }
-.faq-item.open .faq-ico { transform: rotate(45deg); }
+.faq-item.open .faq-ico { transform: rotate(45deg); border-color: #CC1010; }
 .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
-.faq-item.open .faq-a { max-height: 200px; }
-.faq-a p { padding: 0 22px 20px; font-size: 0.85rem; color: var(--muted); line-height: 1.8; }
+.faq-item.open .faq-a { max-height: 220px; }
+.faq-a p { padding: 0 20px 18px; font-size: 0.84rem; color: rgba(0,0,0,0.5); line-height: 1.8; }
 
-/* ─── CONTACT ─── */
-#contact { background: var(--dark); }
+/* ── CONTACT ── */
+#contact { background: #111111; }
 #contact h2 { color: white; }
-#contact .s-sub { color: rgba(255,255,255,0.4); }
+#contact .s-tag { color: rgba(255,255,255,0.45); }
+#contact .s-tag::before { background: rgba(255,255,255,0.45); }
+#contact .s-sub { color: rgba(255,255,255,0.38); }
 
 .contact-grid {
-  display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 60px;
-  align-items: start;
+display: grid;
+grid-template-columns: 1fr 1.2fr;
+gap: 60px;
+align-items: start;
 }
-@media (max-width: 768px) {
-  .contact-grid { grid-template-columns: 1fr; gap: 40px; }
-}
+@media (max-width: 768px) { .contact-grid { grid-template-columns: 1fr; gap: 40px; } }
 
-.contact-infos {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  margin-bottom: 32px;
-}
+.contact-infos { display: flex; flex-direction: column; gap: 14px; margin-bottom: 28px; }
 .contact-info {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  font-size: 0.9rem;
-  color: rgba(255,255,255,0.6);
-  text-decoration: none;
-  transition: color 0.2s;
+display: flex; align-items: center; gap: 14px;
+font-size: 0.88rem; color: rgba(255,255,255,0.55);
+text-decoration: none; transition: color 0.2s;
 }
 .contact-info:hover { color: white; }
 .contact-info-icon {
-  width: 38px; height: 38px;
-  background: rgba(192,57,43,0.15);
-  border: 1px solid rgba(192,57,43,0.3);
-  border-radius: 8px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1rem; flex-shrink: 0;
+width: 38px; height: 38px;
+background: rgba(204,16,16,0.15);
+border: 1px solid rgba(204,16,16,0.3);
+border-radius: 8px;
+display: flex; align-items: center; justify-content: center;
+font-size: 1rem; flex-shrink: 0;
 }
 
-.map-wrap {
-  border-radius: 12px;
-  overflow: hidden;
-  margin-top: 20px;
-}
-.map-wrap iframe {
-  width: 100%; height: 200px; border: none; display: block;
-}
-.btn-itineraire {
-  display: block;
-  background: rgba(192,57,43,0.15);
-  border: 1px solid rgba(192,57,43,0.3);
-  color: #E8A89E;
-  text-align: center;
-  padding: 12px;
-  font-size: 0.82rem;
-  text-decoration: none;
-  border-radius: 0 0 12px 12px;
-  transition: background 0.2s;
-}
-.btn-itineraire:hover { background: rgba(192,57,43,0.25); }
-
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.contact-form { display: flex; flex-direction: column; gap: 11px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 11px; }
 @media (max-width: 500px) { .form-row { grid-template-columns: 1fr; } }
 
 .contact-form input,
 .contact-form select,
 .contact-form textarea {
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.1);
-  color: white;
-  font-family: var(--fb); font-size: 0.88rem; font-weight: 300;
-  padding: 14px 16px; width: 100%; outline: none;
-  border-radius: 10px; transition: border-color 0.2s;
-  -webkit-appearance: none;
+background: rgba(255,255,255,0.06);
+border: 1px solid rgba(255,255,255,0.1);
+color: white;
+font-family: ‘DM Sans’, sans-serif; font-size: 0.87rem; font-weight: 300;
+padding: 14px 16px; width: 100%; outline: none;
+border-radius: 10px; transition: border-color 0.2s;
+-webkit-appearance: none;
 }
-.contact-form input::placeholder, .contact-form textarea::placeholder { color: rgba(255,255,255,0.25); }
-.contact-form input:focus, .contact-form select:focus, .contact-form textarea:focus { border-color: var(--red); }
-.contact-form select { cursor: pointer; color: rgba(255,255,255,0.5); }
-.contact-form select option { background: var(--dark); color: white; }
+.contact-form input::placeholder, .contact-form textarea::placeholder { color: rgba(255,255,255,0.22); }
+.contact-form input:focus, .contact-form select:focus, .contact-form textarea:focus { border-color: #CC1010; }
+.contact-form select { cursor: pointer; color: rgba(255,255,255,0.4); }
+.contact-form select option { background: #111111; color: white; }
 .contact-form textarea { resize: vertical; min-height: 100px; }
 
 .btn-submit {
-  background: var(--red); color: white;
-  font-family: var(--fb); font-weight: 500; font-size: 0.92rem;
-  padding: 16px; border: none; cursor: pointer; border-radius: 10px;
-  transition: opacity 0.2s, transform 0.2s;
+background: #CC1010; color: white;
+font-family: ‘DM Sans’, sans-serif; font-weight: 500; font-size: 0.92rem;
+padding: 16px; border: none; cursor: pointer; border-radius: 10px;
+box-shadow: 0 4px 20px rgba(204,16,16,0.35);
+transition: opacity 0.2s, transform 0.2s;
 }
 .btn-submit:hover { opacity: 0.88; transform: translateY(-2px); }
 
 .form-success {
-  display: none;
-  background: rgba(192,57,43,0.15);
-  border: 1px solid rgba(192,57,43,0.3);
-  color: #E8A89E;
-  padding: 16px;
-  border-radius: 10px;
-  text-align: center;
-  font-size: 0.88rem;
+display: none;
+background: rgba(204,16,16,0.15);
+border: 1px solid rgba(204,16,16,0.35);
+color: #FF8080;
+padding: 16px; border-radius: 10px;
+text-align: center; font-size: 0.87rem;
 }
 
-/* ─── FOOTER ─── */
+/* ── FOOTER ── */
 footer {
-  background: #0e0c0a;
-  padding: 32px 6vw;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 16px;
-  border-top: 1px solid rgba(255,255,255,0.05);
+background: #0a0a0a;
+padding: 28px 6vw;
+display: flex;
+justify-content: space-between;
+align-items: center;
+flex-wrap: wrap;
+gap: 14px;
+border-top: 1px solid rgba(255,255,255,0.04);
+position: relative; z-index: 1;
 }
-.footer-logo {
-  font-family: var(--fd);
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: white;
-  text-decoration: none;
-}
-.footer-logo span { color: var(--red); }
-footer p { font-size: 0.75rem; color: rgba(255,255,255,0.2); }
+.footer-logo { font-family: ‘Nunito’, sans-serif; font-size: 1.1rem; font-weight: 900; color: white; text-decoration: none; }
+.footer-logo span { color: #CC1010; }
+footer p { font-size: 0.73rem; color: rgba(255,255,255,0.2); }
 @media (max-width: 600px) { footer { flex-direction: column; text-align: center; } }
 
-/* ─── WHATSAPP ─── */
+/* ── WHATSAPP ── */
 .wa {
-  position: fixed; bottom: 24px; right: 18px; z-index: 400;
-  background: #25D366; width: 52px; height: 52px; border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  text-decoration: none;
-  box-shadow: 0 4px 18px rgba(37,211,102,0.4);
-  animation: wafloat 3s ease-in-out infinite;
+position: fixed; bottom: 24px; right: 18px; z-index: 400;
+background: #25D366; width: 52px; height: 52px; border-radius: 50%;
+display: flex; align-items: center; justify-content: center;
+text-decoration: none;
+box-shadow: 0 4px 18px rgba(37,211,102,0.4);
+animation: wafloat 3s ease-in-out infinite;
 }
-.wa:hover { transform: scale(1.08); }
+.wa:hover { transform: scale(1.08); animation: none; }
 @keyframes wafloat { 0%,100%{transform:translateY(0);}50%{transform:translateY(-5px);} }
 
-/* ─── REVEAL ─── */
-.rv { opacity: 0; transform: translateY(22px); transition: opacity 0.65s ease, transform 0.65s ease; }
+/* ── REVEAL ── */
+.rv { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
 .rv.on { opacity: 1; transform: translateY(0); }
 </style>
 
 </head>
 <body>
 
-<!-- INTRO RIDEAU -->
+<!-- PAINT CANVAS -->
+
+<canvas id="paint-canvas"></canvas>
+
+<!-- INTRO -->
 
 <div id="intro" onclick="skipIntro()">
   <div class="panel panel-left"></div>
   <div class="panel panel-right"></div>
 </div>
 <div class="intro-logo" id="introLogo">
-  <h2>Color D'Oc</h2>
+  <h2>Color D<span>'</span>Oc</h2>
   <p>Peintre professionnel à Béziers</p>
 </div>
 
@@ -783,7 +677,7 @@ footer p { font-size: 0.75rem; color: rgba(255,255,255,0.2); }
   <a href="#" class="nav-logo">Color D<span>'</span>Oc</a>
   <ul class="nav-links">
     <li><a href="#services">Services</a></li>
-    <li><a href="#realisations">Réalisations</a></li>
+    <li><a href="#avantapres">Avant/Après</a></li>
     <li><a href="#apropos">À propos</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -793,59 +687,47 @@ footer p { font-size: 0.75rem; color: rgba(255,255,255,0.2); }
 <!-- HERO -->
 
 <section id="hero">
-  <div class="hero-video-wrap">
-    <img src="https://images.unsplash.com/photo-1562259929-b4e1fd3aef09?w=1400&auto=format&fit=crop&q=80" alt="Peintre professionnel Béziers" loading="eager">
-    <div class="hero-overlay"></div>
-  </div>
-
+  <svg class="hero-paint-accent" viewBox="0 0 400 800" preserveAspectRatio="xMaxYMid slice" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M400 0 L400 800 L180 800 Q120 750 140 680 Q160 610 120 560 Q80 510 100 440 Q120 370 80 310 Q40 250 60 180 Q80 110 40 50 Q20 20 0 0 Z" fill="rgba(204,16,16,0.055)"/>
+    <path d="M400 0 L400 800 L250 800 Q210 760 230 700 Q250 640 210 590 Q170 540 195 470 Q220 400 190 340 Q160 280 185 210 Q210 140 180 80 Q160 40 140 0 Z" fill="rgba(204,16,16,0.035)"/>
+    <ellipse cx="310" cy="820" rx="18" ry="26" fill="rgba(204,16,16,0.15)"/>
+    <rect x="298" y="720" width="24" height="110" rx="12" fill="rgba(204,16,16,0.11)"/>
+    <ellipse cx="355" cy="845" rx="14" ry="22" fill="rgba(204,16,16,0.1)"/>
+    <rect x="343" y="760" width="20" height="94" rx="10" fill="rgba(204,16,16,0.08)"/>
+    <ellipse cx="270" cy="800" rx="10" ry="16" fill="rgba(204,16,16,0.09)"/>
+    <rect x="262" y="730" width="16" height="76" rx="8" fill="rgba(204,16,16,0.07)"/>
+    <circle cx="160" cy="120" r="5" fill="rgba(204,16,16,0.1)"/>
+    <circle cx="200" cy="95" r="3" fill="rgba(204,16,16,0.08)"/>
+    <circle cx="140" cy="200" r="7" fill="rgba(204,16,16,0.09)"/>
+    <circle cx="220" cy="160" r="4" fill="rgba(204,16,16,0.07)"/>
+    <circle cx="180" cy="280" r="6" fill="rgba(204,16,16,0.1)"/>
+  </svg>
   <div class="hero-content">
     <div class="hero-tag">Peintre professionnel — Béziers & alentours</div>
-
-```
-<h1>
-  L'artisan qui donne<br>
-  <em>vie à vos murs.</em>
-</h1>
-
-<p class="hero-sub">
-  Peinture intérieure, extérieure, façade, décoration et rénovation à Béziers, Montpellier, Narbonne et dans tout l'Hérault.
-</p>
-
-<div class="hero-btns">
-  <a href="#contact" class="btn-primary">Devis gratuit →</a>
-  <a href="#services" class="btn-outline">Nos services</a>
-</div>
-```
-
-  </div>
-
-  <div class="hero-stats">
-    <div class="stat">
-      <span class="stat-val">5<span class="r">/5</span></span>
-      <span class="stat-lbl">Note Google</span>
-    </div>
-    <div class="stat">
-      <span class="stat-val">9</span>
-      <span class="stat-lbl">Avis clients</span>
-    </div>
-    <div class="stat">
-      <span class="stat-val">+10<span class="r">ans</span></span>
-      <span class="stat-lbl">D'expérience</span>
-    </div>
-    <div class="stat">
-      <span class="stat-val">0<span class="r">€</span></span>
-      <span class="stat-lbl">Devis gratuit</span>
+    <h1>L'artisan qui donne<br><em>vie à vos murs.</em></h1>
+    <p class="hero-sub">Peinture intérieure, extérieure, façade, décoration et rénovation à Béziers, Montpellier, Narbonne et dans tout l'Hérault.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-primary">Devis gratuit →</a>
+      <a href="#services" class="btn-outline">Nos services</a>
     </div>
   </div>
 </section>
 
-<!-- POURQUOI NOUS -->
+<!-- STATS -->
+
+<div class="hero-stats">
+  <div class="stat"><span class="stat-val">5<span class="r">/5</span></span><span class="stat-lbl">Note Google</span></div>
+  <div class="stat"><span class="stat-val">9</span><span class="stat-lbl">Avis clients</span></div>
+  <div class="stat"><span class="stat-val">+10<span class="r">ans</span></span><span class="stat-lbl">D'expérience</span></div>
+  <div class="stat"><span class="stat-val">0<span class="r">€</span></span><span class="stat-lbl">Devis gratuit</span></div>
+</div>
+
+<!-- POURQUOI -->
 
 <section id="pourquoi">
   <span class="s-tag">Pourquoi nous choisir</span>
-  <h2 class="rv" style="color:white">Un artisan de confiance,<br>un travail soigné.</h2>
+  <h2 class="rv">Un artisan de confiance,<br>un travail soigné.</h2>
   <p class="s-sub rv">Mohamed et son équipe s'engagent sur la qualité, la ponctualité et le respect de votre espace.</p>
-
   <div class="pourquoi-grid">
     <div class="pourquoi-card rv">
       <span class="pourquoi-icon">🎨</span>
@@ -871,7 +753,6 @@ footer p { font-size: 0.75rem; color: rgba(255,255,255,0.2); }
   <span class="s-tag">Nos services</span>
   <h2 class="rv">Ce qu'on fait<br>pour vous.</h2>
   <p class="s-sub rv">De la peinture intérieure à la rénovation de façade — on s'occupe de tout.</p>
-
   <div class="services-grid">
     <div class="service-card rv">
       <span class="service-num">01</span>
@@ -890,57 +771,120 @@ footer p { font-size: 0.75rem; color: rgba(255,255,255,0.2); }
     </div>
     <div class="service-card rv">
       <span class="service-num">04</span>
-      <h3>Traitement anti-humidité</h3>
-      <p>Diagnostic et traitement des infiltrations, traces d'humidité et moisissures. Solutions durables.</p>
-    </div>
-    <div class="service-card rv">
-      <span class="service-num">05</span>
       <h3>Réparation dégâts des eaux</h3>
       <p>Remise en état après sinistre — plafonds, murs, boiseries. Travail rapide et soigné.</p>
     </div>
     <div class="service-card rv">
-      <span class="service-num">06</span>
+      <span class="service-num">05</span>
       <h3>Décoration & conseil</h3>
       <p>Choix des couleurs, tendances déco, effets spéciaux — on vous conseille pour un résultat qui vous ressemble.</p>
     </div>
   </div>
 </section>
 
-<!-- RÉALISATIONS -->
+<!-- AVANT/APRÈS -->
 
-<section id="realisations">
-  <span class="s-tag">Réalisations</span>
-  <h2 class="rv">Nos chantiers<br>parlent pour nous.</h2>
-  <p class="s-sub rv">Quelques exemples de nos interventions récentes à Béziers et dans l'Hérault.</p>
+<section id="avantapres">
+  <span class="s-tag">Avant / Après</span>
+  <h2 class="rv">La transformation<br><em style="color:#CC1010;font-style:normal">parle d'elle-même.</em></h2>
+  <p class="s-sub rv">Chaque chantier est une transformation complète. Voici quelques-unes de nos réalisations récentes.</p>
+  <div class="aa-grid">
 
-  <div class="real-grid">
-    <img src="https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?w=600&auto=format&fit=crop&q=80" alt="Chantier peinture intérieure Béziers" class="real-img rv" loading="lazy">
-    <img src="https://images.unsplash.com/photo-1562259929-b4e1fd3aef09?w=600&auto=format&fit=crop&q=80" alt="Peinture salon rénovation Béziers" class="real-img rv" loading="lazy">
-    <img src="https://images.unsplash.com/photo-1631889993959-41b4e9c6e3c5?w=600&auto=format&fit=crop&q=80" alt="Rénovation appartement Hérault" class="real-img rv" loading="lazy">
+```
+<!-- Paire 1 : Boiseries -->
+<div class="aa-card rv">
+  <div class="aa-images">
+    <div class="aa-img-wrap">
+      <img src="./photos/boiseries_avant.png" alt="Boiseries avant peinture">
+      <span class="aa-label avant">Avant</span>
+    </div>
+    <div class="aa-img-wrap">
+      <img src="./photos/boiseries_apres.png" alt="Boiseries après peinture">
+      <span class="aa-label apres">Après</span>
+    </div>
+  </div>
+  <div class="aa-info">
+    <h3>Boiseries décoratives</h3>
+    <p>Béziers — Pose & peinture gris-vert</p>
+  </div>
+</div>
+
+<!-- Paire 2 : Escalier -->
+<div class="aa-card rv">
+  <div class="aa-images">
+    <div class="aa-img-wrap">
+      <img src="./photos/escalier_avant.png" alt="Escalier avant peinture">
+      <span class="aa-label avant">Avant</span>
+    </div>
+    <div class="aa-img-wrap">
+      <img src="./photos/escalier_apres.png" alt="Escalier après peinture">
+      <span class="aa-label apres">Après</span>
+    </div>
+  </div>
+  <div class="aa-info">
+    <h3>Peinture intérieure</h3>
+    <p>Hérault — Rénovation complète murs & plafonds</p>
+  </div>
+</div>
+
+<!-- Paire 3 : Façade -->
+<div class="aa-card rv">
+  <div class="aa-images">
+    <div class="aa-img-wrap">
+      <img src="./photos/facade_avant.png" alt="Façade avant ravalement">
+      <span class="aa-label avant">Avant</span>
+    </div>
+    <div class="aa-img-wrap">
+      <img src="./photos/facade_apres.png" alt="Façade après ravalement">
+      <span class="aa-label apres">Après</span>
+    </div>
+  </div>
+  <div class="aa-info">
+    <h3>Ravalement de façade</h3>
+    <p>Béziers — ITE + enduit + peinture</p>
+  </div>
+</div>
+
+<!-- Paire 4 : Appartement -->
+<div class="aa-card rv">
+  <div class="aa-images">
+    <div class="aa-img-wrap">
+      <img src="./photos/appart_avant.png" alt="Appartement avant rénovation">
+      <span class="aa-label avant">Avant</span>
+    </div>
+    <div class="aa-img-wrap">
+      <img src="./photos/appart_apres.png" alt="Appartement après rénovation">
+      <span class="aa-label apres">Après</span>
+    </div>
+  </div>
+  <div class="aa-info">
+    <h3>Rénovation appartement</h3>
+    <p>Béziers — Peinture intérieure complète</p>
+  </div>
+</div>
+```
+
   </div>
 </section>
 
 <!-- À PROPOS -->
 
 <section id="apropos">
-  <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&auto=format&fit=crop&q=80" alt="Mohamed - Peintre Color D'Oc Béziers" class="apropos-img rv" loading="lazy">
-
+  <div class="rv" style="background:#f8f8f8;border-radius:16px;overflow:hidden;aspect-ratio:4/5;max-width:480px">
+    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&auto=format&fit=crop&q=80" alt="Mohamed peintre Color D'Oc Béziers" style="width:100%;height:100%;object-fit:cover">
+  </div>
   <div class="apropos-content">
     <span class="s-tag">À propos</span>
     <h2 class="rv">Color D'Oc,<br>l'artisan de confiance.</h2>
-    <p class="rv" style="color:var(--muted);font-size:.92rem;line-height:1.8;margin-bottom:0">
+    <p class="rv" style="color:rgba(0,0,0,0.5);font-size:.92rem;line-height:1.8">
       Mohamed et son équipe interviennent à Béziers et dans tout l'Hérault depuis plus de 10 ans. Une seule obsession : un travail bien fait, dans les délais, et un client satisfait.
     </p>
-
-```
-<div class="apropos-values">
-  <div class="value rv">Protection totale de vos meubles et sols avant chaque intervention</div>
-  <div class="value rv">Matériaux de qualité professionnelle uniquement</div>
-  <div class="value rv">Devis détaillé et transparent, sans mauvaise surprise</div>
-  <div class="value rv">Disponible 6j/7 pour les urgences dans l'Hérault</div>
-</div>
-```
-
+    <div class="apropos-values">
+      <div class="value rv">Protection totale de vos meubles et sols avant chaque intervention</div>
+      <div class="value rv">Matériaux de qualité professionnelle uniquement</div>
+      <div class="value rv">Devis détaillé et transparent, sans mauvaise surprise</div>
+      <div class="value rv">Disponible 6j/7 pour les urgences dans l'Hérault</div>
+    </div>
   </div>
 </section>
 
@@ -950,31 +894,21 @@ footer p { font-size: 0.75rem; color: rgba(255,255,255,0.2); }
   <span class="s-tag">Avis clients</span>
   <h2 class="rv">5/5 sur Google.<br>Ils en parlent mieux que nous.</h2>
   <p class="s-sub rv">9 avis, 9 étoiles. Voilà ce que nos clients disent de nous.</p>
-
   <div class="temo-grid">
     <div class="temo rv">
       <span class="stars">★★★★★</span>
       <p>"Très belles expériences avec Color d'Oc, Mohamed et son équipe ! Il m'a entièrement rénové un appartement avec un résultat impeccable."</p>
-      <div class="temo-who">
-        <strong>Pierre-Olivier J.</strong>
-        <span>Béziers — Octobre 2023</span>
-      </div>
+      <div class="temo-who"><strong>Pierre-Olivier J.</strong><span>Béziers — Octobre 2023</span></div>
     </div>
     <div class="temo rv">
       <span class="stars">★★★★★</span>
       <p>"Artisan sérieux, ponctuel et efficace. Avant de commencer, il a bien protégé tous les meubles puis s'est mis au travail. Résultat parfait."</p>
-      <div class="temo-who">
-        <strong>Seve S.</strong>
-        <span>Béziers — Janvier 2022</span>
-      </div>
+      <div class="temo-who"><strong>Seve S.</strong><span>Béziers — Janvier 2022</span></div>
     </div>
     <div class="temo rv">
       <span class="stars">★★★★★</span>
       <p>"Intervention rapide et soignée pour une réparation après dégât des eaux. On ne voit plus rien. Je recommande sans hésiter."</p>
-      <div class="temo-who">
-        <strong>Marie G.</strong>
-        <span>Hérault</span>
-      </div>
+      <div class="temo-who"><strong>Marie G.</strong><span>Hérault</span></div>
     </div>
   </div>
 </section>
@@ -985,7 +919,6 @@ footer p { font-size: 0.75rem; color: rgba(255,255,255,0.2); }
   <span class="s-tag">Zones d'intervention</span>
   <h2 class="rv">On intervient<br>près de chez vous.</h2>
   <p class="s-sub rv">Color D'Oc se déplace à Béziers et dans tout l'Hérault et l'Occitanie.</p>
-
   <div class="zones-wrap">
     <span class="zone-chip rv">Béziers</span>
     <span class="zone-chip rv">Montpellier</span>
@@ -1005,27 +938,22 @@ footer p { font-size: 0.75rem; color: rgba(255,255,255,0.2); }
 <section id="faq">
   <span class="s-tag">Questions fréquentes</span>
   <h2 class="rv">On répond à tout.</h2>
-
   <div class="faq-list">
     <div class="faq-item">
       <button class="faq-q">Le devis est-il vraiment gratuit ? <span class="faq-ico">+</span></button>
-      <div class="faq-a"><p>Oui, le dévis est totalement gratuit et sans engagement. On se déplace chez vous à Béziers et dans tout l'Hérault pour évaluer votre projet et vous remettre un devis détaillé.</p></div>
+      <div class="faq-a"><p>Oui, totalement gratuit et sans engagement. On se déplace chez vous à Béziers et dans tout l'Hérault pour évaluer votre projet.</p></div>
     </div>
     <div class="faq-item">
       <button class="faq-q">Protégez-vous mes meubles pendant les travaux ? <span class="faq-ico">+</span></button>
-      <div class="faq-a"><p>Absolument. Avant chaque intervention, on protège intégralement vos meubles, sols et équipements. Vous ne touchez à rien — on s'occupe de tout, y compris le nettoyage en fin de chantier.</p></div>
+      <div class="faq-a"><p>Absolument. Avant chaque intervention, on protège intégralement vos meubles, sols et équipements. On s'occupe aussi du nettoyage en fin de chantier.</p></div>
     </div>
     <div class="faq-item">
       <button class="faq-q">Intervenez-vous en dehors de Béziers ? <span class="faq-ico">+</span></button>
-      <div class="faq-a"><p>Oui, on intervient dans tout l'Hérault — Montpellier, Narbonne, Agde, Sète, Pézenas et alentours. N'hésitez pas à nous contacter pour savoir si on peut intervenir chez vous.</p></div>
+      <div class="faq-a"><p>Oui, on intervient dans tout l'Hérault — Montpellier, Narbonne, Agde, Sète, Pézenas et alentours.</p></div>
     </div>
     <div class="faq-item">
       <button class="faq-q">Quels types de surfaces traitez-vous ? <span class="faq-ico">+</span></button>
-      <div class="faq-a"><p>Murs, plafonds, placo, boiseries, façades, crépi, portes et volets. On intervient aussi bien sur du neuf que sur de la rénovation, intérieur comme extérieur.</p></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q">Traitez-vous les problèmes d'humidité ? <span class="faq-ico">+</span></button>
-      <div class="faq-a"><p>Oui. On diagnostique les sources d'humidité et on applique les traitements adaptés — peintures anti-humidité, membranes d'étanchéité, réparation des supports. Solution durable garantie.</p></div>
+      <div class="faq-a"><p>Murs, plafonds, placo, boiseries, façades, crépi, portes et volets. Neuf comme rénovation, intérieur comme extérieur.</p></div>
     </div>
   </div>
 </section>
@@ -1038,53 +966,39 @@ footer p { font-size: 0.75rem; color: rgba(255,255,255,0.2); }
       <span class="s-tag">Contact</span>
       <h2 class="rv">Demandez votre<br>devis gratuit.</h2>
       <p class="s-sub rv">On se déplace à Béziers et dans tout l'Hérault. Réponse sous 24h.</p>
-
-```
-  <div class="contact-infos">
-    <a href="tel:0659814655" class="contact-info">
-      <div class="contact-info-icon">📞</div>
-      06 59 81 46 55
-    </a>
-    <a href="https://wa.me/33659814655" class="contact-info" target="_blank">
-      <div class="contact-info-icon">💬</div>
-      WhatsApp
-    </a>
-    <div class="contact-info">
-      <div class="contact-info-icon">📍</div>
-      531 Rue des Réformes, 34500 Béziers
+      <div class="contact-infos">
+        <a href="tel:0659814655" class="contact-info">
+          <div class="contact-info-icon">📞</div>06 59 81 46 55
+        </a>
+        <a href="https://wa.me/33659814655" class="contact-info" target="_blank">
+          <div class="contact-info-icon">💬</div>WhatsApp
+        </a>
+        <div class="contact-info">
+          <div class="contact-info-icon">📍</div>531 Rue des Réformes, 34500 Béziers
+        </div>
+      </div>
     </div>
-  </div>
-
-  <div class="map-wrap">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2884.5!2d3.215!3d43.344!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2s531+Rue+des+R%C3%A9formes%2C+34500+B%C3%A9ziers!5e0!3m2!1sfr!2sfr!4v1" allowfullscreen loading="lazy"></iframe>
-    <a href="https://www.google.com/maps/dir/?api=1&destination=531+Rue+des+R%C3%A9formes%2C+34500+B%C3%A9ziers" target="_blank" class="btn-itineraire">📍 Obtenir l'itinéraire</a>
-  </div>
-</div>
-
-<form class="contact-form rv" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-  <input type="hidden" name="form-name" value="contact">
-  <input type="hidden" name="bot-field">
-  <div class="form-row">
-    <input type="text" name="prenom" placeholder="Prénom" required>
-    <input type="tel" name="telephone" placeholder="Téléphone" required>
-  </div>
-  <input type="email" name="email" placeholder="Email" required>
-  <select name="service" required>
-    <option value="" disabled selected>Type de prestation</option>
-    <option>Peinture intérieure</option>
-    <option>Peinture extérieure / façade</option>
-    <option>Crépi / enduit</option>
-    <option>Traitement anti-humidité</option>
-    <option>Réparation dégât des eaux</option>
-    <option>Décoration</option>
-    <option>Autre</option>
-  </select>
-  <textarea name="message" placeholder="Décrivez votre projet (surface, type de travaux, délai souhaité...)"></textarea>
-  <button type="submit" class="btn-submit">Demander un devis gratuit →</button>
-  <div class="form-success" id="formSuccess">✅ Votre demande a bien été envoyée ! On vous recontacte sous 24h.</div>
-</form>
-```
-
+    <form class="contact-form rv" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="contact">
+      <input type="hidden" name="bot-field">
+      <div class="form-row">
+        <input type="text" name="prenom" placeholder="Prénom" required>
+        <input type="tel" name="telephone" placeholder="Téléphone" required>
+      </div>
+      <input type="email" name="email" placeholder="Email" required>
+      <select name="service" required>
+        <option value="" disabled selected>Type de prestation</option>
+        <option>Peinture intérieure</option>
+        <option>Peinture extérieure / façade</option>
+        <option>Crépi / enduit</option>
+        <option>Réparation dégât des eaux</option>
+        <option>Décoration</option>
+        <option>Autre</option>
+      </select>
+      <textarea name="message" placeholder="Décrivez votre projet (surface, type de travaux, délai souhaité...)"></textarea>
+      <button type="submit" class="btn-submit">Demander un devis gratuit →</button>
+      <div class="form-success" id="formSuccess">✅ Votre demande a bien été envoyée ! On vous recontacte sous 24h.</div>
+    </form>
   </div>
 </section>
 
@@ -1098,54 +1012,131 @@ footer p { font-size: 0.75rem; color: rgba(255,255,255,0.2); }
 
 <!-- WHATSAPP -->
 
-<a href="https://wa.me/33659814655" class="wa" target="_blank" rel="noopener" aria-label="Contacter par WhatsApp">
-  <svg width="26" height="26" viewBox="0 0 24 24" fill="white">
-    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-  </svg>
+<a href="https://wa.me/33659814655" class="wa" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 
 <script>
-  // INTRO RIDEAU
-  let introDone = false;
-  function skipIntro() {
-    if (introDone) return;
-    introDone = true;
-    document.getElementById('introLogo').classList.add('fade');
-    document.getElementById('intro').classList.add('open');
-    setTimeout(() => document.getElementById('intro').classList.add('done'), 1300);
+/* ── PAINT CANVAS - desktop only ── */
+(function(){
+  const canvas = document.getElementById('paint-canvas');
+  const ctx = canvas.getContext('2d');
+  let W, H, drips = [], splats = [], animId;
+
+  function isMobile(){ return window.innerWidth < 768; }
+
+  function resize(){
+    W = canvas.width = window.innerWidth;
+    H = canvas.height = window.innerHeight;
   }
-  setTimeout(skipIntro, 2800);
 
-  // REVEAL
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach((e, i) => {
-      if (e.isIntersecting) {
-        setTimeout(() => e.target.classList.add('on'), i * 80);
-        io.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.08 });
-  document.querySelectorAll('.rv').forEach(el => io.observe(el));
+  function createDrips(){
+    if(isMobile()){ ctx.clearRect(0,0,W,H); return; }
+    drips = [];
+    const count = Math.floor(W / 130) + 2;
+    for(let i = 0; i < count; i++){
+      drips.push({
+        x: W * 0.55 + Math.random() * (W * 0.42),
+        y: -40 - Math.random() * 40,
+        speed: 0.3 + Math.random() * 0.9,
+        width: 6 + Math.random() * 18,
+        length: 0,
+        maxLength: 60 + Math.random() * 200,
+        alpha: 0.04 + Math.random() * 0.11,
+        done: false
+      });
+    }
+    splats = [];
+    for(let i = 0; i < 12; i++){
+      splats.push({
+        x: W * 0.48 + Math.random() * (W * 0.5),
+        y: 50 + Math.random() * (H * 0.65),
+        r: 3 + Math.random() * 12,
+        alpha: 0.04 + Math.random() * 0.09
+      });
+    }
+  }
 
-  // FAQ
-  document.querySelectorAll('.faq-q').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const item = btn.parentElement;
-      const isOpen = item.classList.contains('open');
-      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-      if (!isOpen) item.classList.add('open');
+  function draw(){
+    if(isMobile()){ ctx.clearRect(0,0,W,H); return; }
+    ctx.clearRect(0, 0, W, H);
+    splats.forEach(s => {
+      ctx.beginPath();
+      ctx.arc(s.x, s.y, s.r, 0, Math.PI*2);
+      ctx.fillStyle = `rgba(204,16,16,${s.alpha})`;
+      ctx.fill();
     });
+    let allDone = true;
+    drips.forEach(d => {
+      if(!d.done){ d.length = Math.min(d.length + d.speed, d.maxLength); }
+      if(d.length < d.maxLength) allDone = false;
+      const grad = ctx.createLinearGradient(d.x, d.y, d.x, d.y + d.length);
+      grad.addColorStop(0, `rgba(204,16,16,${d.alpha*1.3})`);
+      grad.addColorStop(1, `rgba(204,16,16,${d.alpha*0.3})`);
+      ctx.beginPath();
+      ctx.moveTo(d.x - d.width/2, d.y);
+      ctx.lineTo(d.x + d.width/2, d.y);
+      ctx.lineTo(d.x + d.width*0.3, d.y + d.length);
+      ctx.lineTo(d.x - d.width*0.3, d.y + d.length);
+      ctx.closePath();
+      ctx.fillStyle = grad;
+      ctx.fill();
+      ctx.beginPath();
+      ctx.ellipse(d.x, d.y + d.length + d.width*0.6, d.width*0.5, d.width*0.7, 0, 0, Math.PI*2);
+      ctx.fillStyle = `rgba(204,16,16,${d.alpha})`;
+      ctx.fill();
+      if(d.length >= d.maxLength) d.done = true;
+    });
+    if(!allDone) animId = requestAnimationFrame(draw);
+  }
+
+  resize(); createDrips(); requestAnimationFrame(draw);
+  window.addEventListener('resize', () => {
+    resize(); createDrips();
+    cancelAnimationFrame(animId);
+    requestAnimationFrame(draw);
   });
+})();
 
-  // FORM SUCCESS
-  const form = document.querySelector('.contact-form');
-  if (form) {
-    form.addEventListener('submit', (e) => {
-      setTimeout(() => {
-        document.getElementById('formSuccess').style.display = 'block';
-      }, 500);
-    });
-  }
+/* ── INTRO ── */
+let introDone = false;
+function skipIntro(){
+  if(introDone) return;
+  introDone = true;
+  document.getElementById('introLogo').classList.add('fade');
+  document.getElementById('intro').classList.add('open');
+  setTimeout(() => document.getElementById('intro').classList.add('done'), 1300);
+}
+setTimeout(skipIntro, 2800);
+
+/* ── REVEAL ── */
+const io = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if(e.isIntersecting){
+      setTimeout(() => e.target.classList.add('on'), i * 80);
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.08 });
+document.querySelectorAll('.rv').forEach(el => io.observe(el));
+
+/* ── FAQ ── */
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if(!isOpen) item.classList.add('open');
+  });
+});
+
+/* ── FORM ── */
+const form = document.querySelector('.contact-form');
+if(form){
+  form.addEventListener('submit', () => {
+    setTimeout(() => { document.getElementById('formSuccess').style.display = 'block'; }, 500);
+  });
+}
 </script>
 
 </body>
